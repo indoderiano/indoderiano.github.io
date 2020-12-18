@@ -66,7 +66,9 @@ var board=[
 function reset(){
     console.log('reset')
     turn=2
-    changeTurn(2)
+    if(player1Score!==3 || player2Score!==3){
+        changeTurn(2)
+    }
     board=[
         ['','',''],
         ['','',''],
@@ -216,7 +218,7 @@ setTimeout(function(){
         }
     }
 
-},4000)
+},6000)
 
 
 function changeTurn(player){
