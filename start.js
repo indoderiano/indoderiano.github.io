@@ -54,12 +54,40 @@ document.getElementById("getPlayer2Name").addEventListener('click',function () {
 var boxes=document.getElementsByClassName('box')
 
 var turn=2
+var player1Score=0
+var player2Score=0
 
 var board=[
     ['','',''],
     ['','',''],
     ['','','']
 ]
+
+function reset(){
+    console.log('reset')
+    turn=2
+    changeTurn(2)
+    board=[
+        ['','',''],
+        ['','',''],
+        ['','','']
+    ]
+
+    // clear element
+    for(let i=0;i<boxes.length;i++){
+        var isMarked=boxes[i].querySelector(".mark")!==null
+        if(isMarked){
+            boxes[i].removeChild(boxes[i].childNodes[0])
+
+            // boxes[i].addEventListener('click',mark)
+            // boxes[i].addEventListener('click',function(){
+            //     markBoard(i);
+                
+            // })
+            // boxes[i].style.cursor='pointer'
+        }
+    }
+}
 
 function markBoard(num){
     var count=0
@@ -78,19 +106,30 @@ function markBoard(num){
                 console.log(board)
                 
                 // check if finished
-                console.log('iswin ',isWin())
+                // console.log('iswin ',isWin())
                 if(isWin()==='X'){
                     console.log('x wins')
                     turn=0
-                    endGame(2)
+                    // endGame(2)
+                    upScore(2)
+                    document.getElementById('msgPlayer2').classList.remove('turn')
+                    document.getElementById('msgPlayer1').classList.remove('turn')
+                    setTimeout(function(){
+                        reset()
+                    },600)
                 }
                 if(isWin()==='O'){
                     console.log('o wins')
                     turn=0
-                    endGame(1)
+                    // endGame(1)
+                    upScore(1)
+                    document.getElementById('msgPlayer2').classList.remove('turn')
+                    document.getElementById('msgPlayer1').classList.remove('turn')
+                    setTimeout(function(){
+                        reset()
+                    },600)
                 }
 
-                
                 return
             }
             count++
@@ -101,7 +140,7 @@ function markBoard(num){
 // check if win
 function isWin(){
     // console.log('is win')
-    console.log(board)
+    // console.log(board)
     
     // check horizontal
     for(let i=0;i<3;i++){
@@ -134,21 +173,50 @@ function isWin(){
 }
 
 
-// initial
-// changeTurn(2)
-for(let i=0;i<boxes.length;i++){
-    var isMarked=boxes[i].querySelector(".mark")!==null
-    if(!isMarked){
-        boxes[i].addEventListener('click',mark)
-        boxes[i].addEventListener('click',function(){
-            markBoard(i);
-            
-        })
-        boxes[i].style.cursor='pointer'
-    }else{
-        boxes[i].style.cursor='none'
+function upScore(player){
+    if(player===1){
+        player1Score++
+        document.getElementById('player1Score').innerHTML=player1Score
+
+        if(player1Score===3){
+            turn=0
+            document.getElementById('msgPlayer2').classList.remove('turn')
+            document.getElementById('msgPlayer1').classList.remove('turn')
+            endGame(1)
+        }
+    }else if(player===2){
+        player2Score++
+        document.getElementById('player2Score').innerHTML=player2Score
+
+        if(player2Score===3){
+            turn=0
+            document.getElementById('msgPlayer2').classList.remove('turn')
+            document.getElementById('msgPlayer1').classList.remove('turn')
+            endGame(2)
+        }
     }
 }
+
+
+
+// initial
+// changeTurn(2)
+setTimeout(function(){
+    for(let i=0;i<boxes.length;i++){
+        var isMarked=boxes[i].querySelector(".mark")!==null
+        if(!isMarked){
+            boxes[i].addEventListener('click',mark)
+            boxes[i].addEventListener('click',function(){
+                markBoard(i);
+                
+            })
+            boxes[i].style.cursor='pointer'
+        }else{
+            boxes[i].style.cursor='none'
+        }
+    }
+
+},4000)
 
 
 function changeTurn(player){
@@ -304,14 +372,19 @@ function endGame(player){
         setTimeout(function(){
             if(player===1){
                 document.getElementById('superman').classList.add('appear')
+                document.getElementById('fly').classList.add('appear')
             }else if(player===2){
                 document.getElementById('joker').classList.add('appear')
+                document.getElementById('haha').classList.add('appear')
                 document.getElementById('winner').style.background='rgba(0,0,0,.2)'
             }
             
         },500)
-    },1000)
+    },2200)
 }
 
 
+// setTimeout(function(){
+//     endGame(2)
 
+// },2000)

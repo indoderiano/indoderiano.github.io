@@ -6,6 +6,7 @@
     <link href="style.css" rel="stylesheet" type="text/css"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -39,14 +40,21 @@
 
         <div class="arena-left">
             <div id="msgPlayer1" class="msg left center">
-                <p>It's Your Turn</p>
+                <p class="player1Font" style="font-size: 24px;">It's Your Turn</p>
                 <div>
                     <img src='./assets/s-logo.png'/>
                 </div>
             </div>
         </div>
         <div class="arena-mid">
-            <div style="width: 500px; height:500px; position: relative; overflow: hidden;border:0px solid red;" class="center">
+            <div style="width: 100%;height: 100px;border:0px solid red; text-align: center; position: relative;">
+                <div class="center score player1Font">
+                    <span id='player1Score' class="player1Font">0</span>
+                    <span> - </span>
+                    <span id='player2Score' class="player1Font">0</span>
+                </div>
+            </div>
+            <div style="width: 450px; height:450px; overflow: hidden;border:0px solid red;" class="center board">
                 <span class="v1">l</span>
                 <span class="v2">l</span>
                 <span class="h1">l</span>
@@ -68,7 +76,7 @@
         </div>
         <div class="arena-left">
             <div id="msgPlayer2" class="msg right center">
-                <p>It's Your Turn</p>
+                <p class="player2Font" style="font-size:27px;">It's Your Turn</p>
                 <div>
                     <img src='./assets/mask.png'/>
                 </div>
@@ -76,15 +84,21 @@
         </div>
     </div>
 
-    <div id='winner' class="hide">
+    <div id='winner' class="hide" style="overflow: hidden;">
+        <div id='haha' class="center">
+            <img src="./assets/hahaha.png"/>
+        </div>
+        <div id='fly' class="center">
+            <img src="./assets/fly.png"/>
+        </div>
         <div id="superman" class="center">
-            <p id="resultMsg">The Winner is</p>
+            <p id="resultMsg" class="player1Font" style="font-size: 42px;">The Winner is</p>
             <div class="hero">
                 <img src='./assets/s-logo.png'/>
             </div>
         </div>
         <div id="joker" class="center">
-            <p id="resultMsg">The Winner is</p>
+            <p id="resultMsg" class="player2Font" style="font-size: 36px;">The Winner is</p>
             <div class="hero">
                 <img src='./assets/mask.png'/>
             </div>

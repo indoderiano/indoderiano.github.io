@@ -146,7 +146,7 @@ body, html {
     left: 150%;
 }
 #player2Input.hide {
-    left: -50%;
+    left: -80%;
 }
 
 .register {
@@ -193,7 +193,20 @@ body, html {
     height: 100vh;
     font-family: 'Shadows Into Light', cursive;
     position: relative;
+    /* overflow: hidden; */
+}
+.arena-mid .score {
+    /* top: 0%; 
+    transform: translate(-50%,0); */
+    top: 40%;
+    font-size: 72px;
+    /* transform: translate(-50%,0); */
     overflow: hidden;
+    /* font-family: ; */
+}
+
+.arena-mid .board {
+    top: calc(50% + 30px);
 }
 
 
@@ -202,7 +215,7 @@ body, html {
     top: 57%;
     left: 33%;
     transform: translate(-50%,-50%) scaleX(.4);
-    font-size: 570px;
+    font-size: 480px;
     transition: all .3s ease 1.8s;
 }
 .hide .v1{
@@ -214,7 +227,7 @@ body, html {
     top: 57%;
     left: 66%;
     transform: translate(-50%,-50%) scaleX(.4);
-    font-size: 570px;
+    font-size: 480px;
     transition: all .3s ease 2s;
 }
 .hide .v2{
@@ -226,7 +239,7 @@ body, html {
     top: 33%;
     left: 42%;
     transform: translate(-50%,-50%) scaleY(.4) rotate(90deg);
-    font-size: 570px;
+    font-size: 480px;
     transition: all .3s ease 2.2s;
 }
 .hide .h1{
@@ -238,7 +251,7 @@ body, html {
     top: 66%;
     left: 42%;
     transform: translate(-50%,-50%) scaleY(.4) rotate(90deg);
-    font-size: 570px;
+    font-size: 480px;
     transition: all .3s ease 2.4s;
 }
 .hide .h2{
@@ -259,6 +272,7 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    z-index: -2;
 }
 
 
@@ -324,4 +338,40 @@ body, html {
 }
 #joker img {
     width: 300px;
+}
+
+#haha.center {
+    left: 20%;
+    transition: all 1.3s ease 1.7s;
+    opacity: 0;;
+}
+#haha.center.appear {
+    opacity: 1;
+}
+#haha img {
+    width: 300px;
+}
+
+
+
+#fly.center {
+    top:20%;
+    left: -50%;
+    transition: all .7s ease 1.7s;
+    /* opacity: 0; */
+}
+#fly.center.appear {
+    left: 150%;
+}
+#fly img {
+    width: 300px;
+}
+
+
+
+.player1Font {
+    font-family: 'Lato', sans-serif;
+}
+.player2Font {
+    font-family: 'Shadows Into Light', cursive;
 }
