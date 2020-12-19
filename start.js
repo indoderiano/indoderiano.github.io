@@ -296,7 +296,11 @@ function mark(e){
     mark.classList.add('mark')
 
     // check if already marked
-    var isMarked=e.target.classList.contains('mark')
+    // console.log('checking if already mark')
+    // console.log(e.target.getElementsByClassName('mark').length)
+    // console.log(e.target.classList)
+    // var isMarked=e.target.classList.contains('mark')
+    var isMarked=e.target.getElementsByClassName('mark').length>0
 
     if(!isMarked){
         e.target.appendChild(mark)
